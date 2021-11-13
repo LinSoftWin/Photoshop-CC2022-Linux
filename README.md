@@ -1,4 +1,8 @@
 # Photoshop-CC2021-Linux
+
+**DISCLAIMER :**
+**Please use this software only if you have an active Photoshop subscription. I'm not responsable of any use without subscription.**
+
 Installer for Photoshop CC 2021 on linux with one command
 
 **If you aren't using camera raw, use the 1.0 version cause I don't know how stable is the camera raw version. https://github.com/MiMillieuh/Photoshop-CC2021-Linux/releases/tag/1.0**
