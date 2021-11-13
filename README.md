@@ -12,7 +12,7 @@ Just open a terminal in the folder where the script is located and type "sh inst
 An uninstaller is given with it too just open a terminal in the folder where the script is located and type "sh uninstall.sh"  (without "")
 
 ## Requirements
-- wine >=6.1
+- wine >=6.1 (Should be packed with the 1.1 installer because of a bug in wine >=6.20)
 - zenity
 - appmenu-gtk-module
 - All R/W rights on your home folder and the installer folder
