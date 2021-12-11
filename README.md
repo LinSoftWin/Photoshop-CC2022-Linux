@@ -19,3 +19,4 @@ An uninstaller is given with it too just open a terminal in the folder where the
 - wget
 - curl
 - All R/W rights on your home folder and the installer folder
+- Vulkan capable GPU or APU
