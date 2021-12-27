@@ -3,6 +3,8 @@
 **DISCLAIMER :**
 **Please use this software only if you have an active Photoshop subscription. I'm not responsable of any use without subscription.**
 
+**Note that dropbox sometime block the Photoshop package cause "too much downloads". If you have any alternative solution that doesn't have this issue, just create an issue with the name of the service thanks.**
+
 Installer for Photoshop CC 2021 on linux with one command
 
 **If you aren't using camera raw, use the 1.0 version cause I don't know how stable is the camera raw version. https://github.com/MiMillieuh/Photoshop-CC2021-Linux/releases/tag/1.0**
