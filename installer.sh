@@ -1,6 +1,8 @@
 #!/bin/bash
+ALLREDIST_URL = "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO"
 ALLREDIST_FILE = "./allredist.tar.xz"
 ALLREDIST_MD5 = "8bfab2e4a4682d9bcf79926544053b76"
+PHOTOSHOP_URL = "https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz"
 PHOTOSHOP_FILE = "./AdobePhotoshop2021.tar.xz"
 PHOTOSHOP_MD5 = "cccb6715180b86e1eb8c1d7bd4a8a4e8"
 WINETRICKS_FILE = "./winetricks"
@@ -21,11 +23,11 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop $WINETRICKS_FILE win10
 
 
 if [ ! -f "$ALLREDIST_FILE" ]; then
-	curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > $ALLREDIST_FILE
+	curl -L $ALLREDIST_URL > $ALLREDIST_FILE
 fi
 
 if [ ! -f "$PHOTOSHOP_FILE" ]; then
-	curl -L "https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz" > $PHOTOSHOP_FILE
+	curl -L $PHOTOSHOP_URL > $PHOTOSHOP_FILE
 fi
 
 if ! md5sum --status -c <(echo $ALLREDIST_MD5 $ALLREDIST_FILE); then
