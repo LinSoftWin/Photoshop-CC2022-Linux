@@ -10,8 +10,8 @@ WINETRICKS_FILE = "./winetricks"
 CAMERA_RAW_URL = "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe"
 CAMERA_RAW_FILE = "./CameraRaw.exe"
 
-echo "Welcome! I am going to install Photoshop on your Linux Machine."
-echo "This will take up to 10 Minutes so pleae be patient."
+echo "INFO: Welcome! I am going to install Photoshop on your Linux Machine."
+echo "INFO: This will take up to 10 Minutes so pleae be patient."
 
 mkdir -p ~/.WineApps/Adobe-Photoshop
 
@@ -24,10 +24,18 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop $WINETRICKS_FILE win10
 
 if [ ! -f "$ALLREDIST_FILE" ]; then
 	curl -L $ALLREDIST_URL > $ALLREDIST_FILE
+	if [ 0 -ne $? ]; then
+		echo "ERROR: could not download $ALLREDIST_URL. Please check the output above."
+		exit 1
+	fi
 fi
 
 if [ ! -f "$PHOTOSHOP_FILE" ]; then
 	curl -L $PHOTOSHOP_URL > $PHOTOSHOP_FILE
+	if [ 0 -ne $? ]; then
+		echo "ERROR: could not download $PHOTOSHOP_URL. Please check the output above."
+		exit 1
+	fi
 fi
 
 if ! md5sum --status -c <(echo $ALLREDIST_MD5 $ALLREDIST_FILE); then
@@ -70,6 +78,11 @@ while true; do
 		[Yy]* ) 
 			echo "Just follow the setup from CameraRaw."
 			curl -L $CAMERA_RAW_URL > $CAMERA_RAW_FILE
+			if [ 0 -ne $? ]; then
+				echo "ERROR: could not download $CAMERA_RAW_URL. Please check the output above."
+				echo "INFO: You can download CameraRaw manually and install it with:"
+				echo "INFO: WINEPREFIX=~/.WineApps/Adobe-Photoshop wine <PATH_TO_CAMERARAW.EXE>"
+			fi
 			WINEPREFIX=~/.WineApps/Adobe-Photoshop wine $CAMERA_RAW_FILE
 			break;;
 		[Nn]* ) break;;
@@ -86,4 +99,4 @@ while true; do
 		* ) echo "Please answer (y)es or (n)o.";;
 	esac
 	
-echo "Have fun with Photoshop!"
+echo "INFO: Have fun with Photoshop!"
