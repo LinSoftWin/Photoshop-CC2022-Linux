@@ -26,7 +26,7 @@ chmod +x $WINETRICKS_FILE
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wineboot
 WINEPREFIX=~/.WineApps/Adobe-Photoshop $WINETRICKS_FILE win10
 
-
+echo -e "\n"
 if [ ! -f "$ALLREDIST_FILE" ]; then
 	curl -L $ALLREDIST_URL > $ALLREDIST_FILE
 	if [ 0 -ne $? ]; then
@@ -56,6 +56,7 @@ if ! md5sum --status -c <(echo -e $PHOTOSHOP_MD5 $PHOTOSHOP_FILE); then
 	echo -e "${RED}ERROR: md5sum of $PHOTOSHOP_FILE did not match! Please download the file manually.${ENDCOLOR}"
 	exit 1
 fi
+echo -e "\n"
 
 tar -xf $ALLREDIST_FILE
 tar -xf $PHOTOSHOP_FILE
@@ -81,12 +82,12 @@ mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
-echo "\n"
+echo -e "\n${CYAN}"
 while true; do
 	read -p "Do you want to install CameraRaw?" yn
 	case $yn in
 		[Yy]* ) 
-			echo -e "Just follow the setup from CameraRaw."
+			echo -e "${CYAN}Just follow the setup from CameraRaw.${ENDCOLOR}"
 			curl -L $CAMERA_RAW_URL > $CAMERA_RAW_FILE
 			if [ 0 -ne $? ]; then
 				echo -e "${RED}ERROR: could not download $CAMERA_RAW_URL. Please check the output above.${ENDCOLOR}"
@@ -96,11 +97,11 @@ while true; do
 			WINEPREFIX=~/.WineApps/Adobe-Photoshop wine $CAMERA_RAW_FILE
 			break;;
 		[Nn]* ) break;;
-		* ) echo -e "Please answer (y)es or (n)o.${ENDCOLOR}";;
+		* ) echo -e "${RED}Please answer (y)es or (n)o.${ENDCOLOR}";;
 	esac
 done
 
-echo "\n"
+echo -e "\n${CYAN}"
 while true; do
 	read -p "Do you want to remove all installation artifacts?" yn
 	case $yn in
@@ -108,7 +109,7 @@ while true; do
 			rm -rf $ALLREDIST_FILE $PHOTOSHOP_FILE ./allredist $WINETRICKS_FILE $CAMERA_RAW_FILE
 			break;;
 		[Nn]* ) break;;
-		* ) echo -e "Please answer (y)es or (n)o.";;
+		* ) echo -e "${RED}Please answer (y)es or (n)o.${ENDCOLOR}";;
 	esac
 done
 
