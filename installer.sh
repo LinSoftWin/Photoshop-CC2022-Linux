@@ -7,7 +7,7 @@ read cameraraw
 
 mkdir -p ~/.WineApps/Adobe-Photoshop
 
-wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+curl -L https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > winetricks
 chmod +x winetricks
 
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wineboot
