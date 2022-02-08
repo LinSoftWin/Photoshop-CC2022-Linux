@@ -53,12 +53,13 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2013/vcredist_x64.e
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
 
-WINEPREFIX=~/.WineApps/Adobe-Photoshop sh setup_vkd3d_proton.sh install
+WINEPREFIX=~/.WineApps/Adobe-Photoshop sh allredist/setup_vkd3d_proton.sh install
+
 mkdir ~/.WineApps/Adobe-Photoshop/drive_c/Program\ Files/Adobe
 mv Adobe\ Photoshop\ 2021 ~/.WineApps/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
-mv launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
-mv photoshop.png ~/.local/share/icons
-mv photoshop.desktop ~/.local/share/applications
+mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
+mv allredist/photoshop.png ~/.local/share/icons
+mv allredist/photoshop.desktop ~/.local/share/applications
 
 rm -rf redist
 rm -rf winetricks
