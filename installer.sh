@@ -38,11 +38,7 @@ if ! md5sum --status -c <(echo $PHOTOSHOP_MD5 $PHOTOSHOP_FILE); then
 fi
 
 tar -xf $ALLREDIST_FILE
-rm -rf allredist.tar.xz
-
 tar -xf $PHOTOSHOP_FILE
-rm -rf AdobePhotoshop2021.tar.xz
-
 
 WINEPREFIX=~/.WineApps/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2010/vcredist_x64.exe /q /norestart
