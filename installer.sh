@@ -15,8 +15,8 @@ GREEN="\e[32m"
 CYAN="\e[36m"
 ENDCOLOR="\e[0m"
 
-echo "\n${CYAN}INFO: Welcome! I am going to install Photoshop on your Linux Machine.${ENDCOLOR}"
-echo "${CYAN}INFO: This will take up to 10 Minutes so pleae be patient.${ENDCOLOR}\n"
+echo -e "\n${CYAN}INFO: Welcome! I am going to install Photoshop on your Linux Machine.${ENDCOLOR}"
+echo -e "${CYAN}INFO: This will take up to 10 Minutes so pleae be patient.${ENDCOLOR}\n"
 
 mkdir -p ~/.WineApps/Adobe-Photoshop
 
@@ -30,30 +30,30 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop $WINETRICKS_FILE win10
 if [ ! -f "$ALLREDIST_FILE" ]; then
 	curl -L $ALLREDIST_URL > $ALLREDIST_FILE
 	if [ 0 -ne $? ]; then
-		echo "${RED}ERROR: could not download $ALLREDIST_URL. Please check the output above.${ENDCOLOR}"
+		echo -e "${RED}ERROR: could not download $ALLREDIST_URL. Please check the output above.${ENDCOLOR}"
 		exit 1
 	fi
 else
-	echo "${CYAN}INFO: $ALLREDIST_FILE already exists. Using it.${ENDCOLOR}"
+	echo -e "${CYAN}INFO: $ALLREDIST_FILE already exists. Using it.${ENDCOLOR}"
 fi
 
 if [ ! -f "$PHOTOSHOP_FILE" ]; then
 	curl -L $PHOTOSHOP_URL > $PHOTOSHOP_FILE
 	if [ 0 -ne $? ]; then
-		echo "${RED}ERROR: could not download $PHOTOSHOP_URL. Please check the output above.${ENDCOLOR}"
+		echo -e "${RED}ERROR: could not download $PHOTOSHOP_URL. Please check the output above.${ENDCOLOR}"
 		exit 1
 	fi
 else
-	echo "${CYAN}INFO: $PHOTOSHOP_FILE already exists. Using it.${ENDCOLOR}"
+	echo -e "${CYAN}INFO: $PHOTOSHOP_FILE already exists. Using it.${ENDCOLOR}"
 fi
 
-if ! md5sum --status -c <(echo $ALLREDIST_MD5 $ALLREDIST_FILE); then
-	echo "${RED}ERROR: md5sum of $ALLREDIST_FILE did not match! Please download the file again.${ENDCOLOR}"
+if ! md5sum --status -c <(echo -e $ALLREDIST_MD5 $ALLREDIST_FILE); then
+	echo -e "${RED}ERROR: md5sum of $ALLREDIST_FILE did not match! Please download the file manually.${ENDCOLOR}"
 	exit 1
 fi
 
-if ! md5sum --status -c <(echo $PHOTOSHOP_MD5 $PHOTOSHOP_FILE); then
-	echo "${RED}ERROR: md5sum of $PHOTOSHOP_FILE did not match! Please download the file again.${ENDCOLOR}"
+if ! md5sum --status -c <(echo -e $PHOTOSHOP_MD5 $PHOTOSHOP_FILE); then
+	echo -e "${RED}ERROR: md5sum of $PHOTOSHOP_FILE did not match! Please download the file manually.${ENDCOLOR}"
 	exit 1
 fi
 
@@ -85,17 +85,17 @@ while true; do
 	read -p "${GREEN}Do you want to install CameraRaw?${ENDCOLOR}" yn
 	case $yn in
 		[Yy]* ) 
-			echo "Just follow the setup from CameraRaw."
+			echo -e "Just follow the setup from CameraRaw."
 			curl -L $CAMERA_RAW_URL > $CAMERA_RAW_FILE
 			if [ 0 -ne $? ]; then
-				echo "${RED}ERROR: could not download $CAMERA_RAW_URL. Please check the output above.${ENDCOLOR}"
-				echo "${CYAN}INFO: You can download CameraRaw manually and install it with:${ENDCOLOR}"
-				echo "${CYAN}INFO: WINEPREFIX=~/.WineApps/Adobe-Photoshop wine <PATH_TO_CAMERARAW.EXE>${ENDCOLOR}"
+				echo -e "${RED}ERROR: could not download $CAMERA_RAW_URL. Please check the output above.${ENDCOLOR}"
+				echo -e "${CYAN}INFO: You can download CameraRaw manually and install it with:${ENDCOLOR}"
+				echo -e "${CYAN}INFO: WINEPREFIX=~/.WineApps/Adobe-Photoshop wine <PATH_TO_CAMERARAW.EXE>${ENDCOLOR}"
 			fi
 			WINEPREFIX=~/.WineApps/Adobe-Photoshop wine $CAMERA_RAW_FILE
 			break;;
 		[Nn]* ) break;;
-		* ) echo "Please answer (y)es or (n)o.${ENDCOLOR}";;
+		* ) echo -e "Please answer (y)es or (n)o.${ENDCOLOR}";;
 	esac
 
 while true; do
@@ -105,7 +105,7 @@ while true; do
 			rm -rf $ALLREDIST_FILE $PHOTOSHOP_FILE ./allredist $WINETRICKS_FILE $CAMERA_RAW_FILE
 			break;;
 		[Nn]* ) break;;
-		* ) echo "Please answer (y)es or (n)o.";;
+		* ) echo -e "Please answer (y)es or (n)o.";;
 	esac
 	
-echo "${CYAN}INFO: Have fun with Photoshop!${ENDCOLOR}"
+echo -e "${CYAN}INFO: Have fun with Photoshop!${ENDCOLOR}"
