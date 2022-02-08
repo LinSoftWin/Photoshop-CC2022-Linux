@@ -26,7 +26,7 @@ chmod +x $WINETRICKS_FILE
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wineboot
 WINEPREFIX=~/.WineApps/Adobe-Photoshop $WINETRICKS_FILE win10
 
-echo -e "\n"
+echo ""
 if [ ! -f "$ALLREDIST_FILE" ]; then
 	curl -L $ALLREDIST_URL > $ALLREDIST_FILE
 	if [ 0 -ne $? ]; then
@@ -56,7 +56,7 @@ if ! md5sum --status -c <(echo -e $PHOTOSHOP_MD5 $PHOTOSHOP_FILE); then
 	echo -e "${RED}ERROR: md5sum of $PHOTOSHOP_FILE did not match! Please download the file manually.${ENDCOLOR}"
 	exit 1
 fi
-echo -e "\n"
+echo ""
 
 tar -xf $ALLREDIST_FILE
 tar -xf $PHOTOSHOP_FILE
@@ -82,7 +82,7 @@ mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
-echo -e "\n${CYAN}"
+echo -e "${CYAN}"
 while true; do
 	read -p "Do you want to install CameraRaw?" yn
 	case $yn in
@@ -101,7 +101,7 @@ while true; do
 	esac
 done
 
-echo -e "\n${CYAN}"
+echo -e "${CYAN}"
 while true; do
 	read -p "Do you want to remove all installation artifacts?" yn
 	case $yn in
