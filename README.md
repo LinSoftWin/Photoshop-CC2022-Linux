@@ -13,10 +13,8 @@ An uninstaller is given with it too just open a terminal in the folder where the
 
 ## Requirements
 - wine >=6.1 (Avoid 6.20 to 6.22)
-- zenity
 - appmenu-gtk-module
 - tar
-- wget
 - curl
 - All R/W rights on your home folder and the installer folder
 - Vulkan capable GPU or APU
