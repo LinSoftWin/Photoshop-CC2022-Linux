@@ -3,6 +3,7 @@ ALLREDIST_FILE = "./allredist.tar.xz"
 ALLREDIST_MD5 = "8bfab2e4a4682d9bcf79926544053b76"
 PHOTOSHOP_FILE = "./AdobePhotoshop2021.tar.xz"
 PHOTOSHOP_MD5 = "cccb6715180b86e1eb8c1d7bd4a8a4e8"
+WINETRICKS_FILE = "./winetricks"
 
 echo "Welcome to Photoshop installer"
 echo "Would you like to install Camera Raw with photoshop ? (This will prompt the camera raw installer at the end)"
@@ -12,11 +13,11 @@ read cameraraw
 
 mkdir -p ~/.WineApps/Adobe-Photoshop
 
-curl -L https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > winetricks
-chmod +x winetricks
+curl -L https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > $WINETRICKS_FILE
+chmod +x $WINETRICKS_FILE
 
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wineboot
-WINEPREFIX=~/.WineApps/Adobe-Photoshop ./winetricks win10
+WINEPREFIX=~/.WineApps/Adobe-Photoshop $WINETRICKS_FILE win10
 
 
 if [ ! -f "$ALLREDIST_FILE" ]; then
@@ -40,7 +41,7 @@ fi
 tar -xf $ALLREDIST_FILE
 tar -xf $PHOTOSHOP_FILE
 
-WINEPREFIX=~/.WineApps/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk
+WINEPREFIX=~/.WineApps/Adobe-Photoshop $WINETRICKS_FILE fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2010/vcredist_x64.exe /q /norestart
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2010/vcredist_x86.exe /q /norestart
 
@@ -61,12 +62,18 @@ mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
-if [ $cameraraw = "1" ]
-then
-echo "Just follow the setup from Camera Raw."
-curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine CameraRaw_12_2_1.exe
-else
-	echo ""
+if [ $cameraraw = "1" ]; then
+	echo "Just follow the setup from Camera Raw."
+	curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
+	WINEPREFIX=~/.WineApps/Adobe-Photoshop wine CameraRaw_12_2_1.exe
 fi
-zenity --info --text="Installation finished, Have fun with Photoshop !"
+
+echo "Installation finished!"
+while true; do
+	read -p "Do you want to remove all installation artifacts?" yn
+	case $yn info
+		[Yy]* ) rm -rf $ALLREDIST_FILE $PHOTOSHOP_FILE ./allredist $WINETRICKS_FILE; break;;
+		[Nn]* ) break;;
+		* ) echo "Please answer (y)es or (n)o.";;
+	
+echo "Have fun with Photoshop!"
