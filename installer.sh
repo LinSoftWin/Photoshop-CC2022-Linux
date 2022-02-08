@@ -5,8 +5,7 @@ echo "1 = yes 0 = no"
 cameraraw=1
 read cameraraw
 
-mkdir ~/.WineApps
-mkdir ~/.WineApps/Adobe-Photoshop
+mkdir -p ~/.WineApps/Adobe-Photoshop
 
 wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
