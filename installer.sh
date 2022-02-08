@@ -20,11 +20,11 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop ./winetricks win10
 
 
 if [ ! -f "$ALLREDIST_FILE" ]; then
-	curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > allredist.tar.xz
+	curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > $ALLREDIST_FILE
 fi
 
 if [ ! -f "$PHOTOSHOP_FILE" ]; then
-	curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > allredist.tar.xz
+	curl -L "https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz" > $PHOTOSHOP_FILE
 fi
 
 if ! md5sum --status -c <(echo $ALLREDIST_MD5 $ALLREDIST_FILE); then
@@ -37,10 +37,10 @@ if ! md5sum --status -c <(echo $PHOTOSHOP_MD5 $PHOTOSHOP_FILE); then
 	exit 1
 fi
 
-tar -xf allredist.tar.xz
+tar -xf $ALLREDIST_FILE
 rm -rf allredist.tar.xz
-curl -L "https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz" > AdobePhotoshop2021.tar.xz
-tar -xf AdobePhotoshop2021.tar.xz
+
+tar -xf $PHOTOSHOP_FILE
 rm -rf AdobePhotoshop2021.tar.xz
 
 
