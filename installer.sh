@@ -81,8 +81,9 @@ mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
+echo "\n"
 while true; do
-	read -p "${GREEN}Do you want to install CameraRaw?${ENDCOLOR}" yn
+	read -p "Do you want to install CameraRaw?" yn
 	case $yn in
 		[Yy]* ) 
 			echo -e "Just follow the setup from CameraRaw."
@@ -97,9 +98,11 @@ while true; do
 		[Nn]* ) break;;
 		* ) echo -e "Please answer (y)es or (n)o.${ENDCOLOR}";;
 	esac
+done
 
+echo "\n"
 while true; do
-	read -p "${GREEN}Do you want to remove all installation artifacts?${ENDCOLOR}" yn
+	read -p "Do you want to remove all installation artifacts?" yn
 	case $yn in
 		[Yy]* )
 			rm -rf $ALLREDIST_FILE $PHOTOSHOP_FILE ./allredist $WINETRICKS_FILE $CAMERA_RAW_FILE
@@ -107,5 +110,6 @@ while true; do
 		[Nn]* ) break;;
 		* ) echo -e "Please answer (y)es or (n)o.";;
 	esac
-	
-echo -e "${CYAN}INFO: Have fun with Photoshop!${ENDCOLOR}"
+done
+
+echo -e "\n${CYAN}INFO: Have fun with Photoshop!${ENDCOLOR}"
