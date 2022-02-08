@@ -29,10 +29,12 @@ fi
 
 if ! md5sum --status -c <(echo $ALLREDIST_MD5 $ALLREDIST_FILE); then
 	echo "ERROR: md5sum of $ALLREDIST_FILE did not match! Please download the file again."
+	exit 1
 fi
 
 if ! md5sum --status -c <(echo $PHOTOSHOP_MD5 $PHOTOSHOP_FILE); then
 	echo "ERROR: md5sum of $PHOTOSHOP_FILE did not match! Please download the file again."
+	exit 1
 fi
 
 tar -xf allredist.tar.xz
