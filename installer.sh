@@ -1,17 +1,22 @@
 #!/bin/bash
-ALLREDIST_URL = "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO"
-ALLREDIST_FILE = "./allredist.tar.xz"
-ALLREDIST_MD5 = "8bfab2e4a4682d9bcf79926544053b76"
-PHOTOSHOP_URL = "https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz"
-PHOTOSHOP_FILE = "./AdobePhotoshop2021.tar.xz"
-PHOTOSHOP_MD5 = "cccb6715180b86e1eb8c1d7bd4a8a4e8"
-WINETRICKS_URL = "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks"
-WINETRICKS_FILE = "./winetricks"
-CAMERA_RAW_URL = "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe"
-CAMERA_RAW_FILE = "./CameraRaw.exe"
+ALLREDIST_URL="https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO"
+ALLREDIST_FILE="./allredist.tar.xz"
+ALLREDIST_MD5="8bfab2e4a4682d9bcf79926544053b76"
+PHOTOSHOP_URL="https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz"
+PHOTOSHOP_FILE="./AdobePhotoshop2021.tar.xz"
+PHOTOSHOP_MD5="cccb6715180b86e1eb8c1d7bd4a8a4e8"
+WINETRICKS_URL="https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks"
+WINETRICKS_FILE="./winetricks"
+CAMERA_RAW_URL="https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe"
+CAMERA_RAW_FILE="./CameraRaw.exe"
 
-echo "INFO: Welcome! I am going to install Photoshop on your Linux Machine."
-echo "INFO: This will take up to 10 Minutes so pleae be patient."
+RED="\e[31m"
+GREEN="\e[32m"
+CYAN="\e[36m"
+ENDCOLOR="\e[0m"
+
+echo "\n${CYAN}INFO: Welcome! I am going to install Photoshop on your Linux Machine.${ENDCOLOR}"
+echo "${CYAN}INFO: This will take up to 10 Minutes so pleae be patient.${ENDCOLOR}\n"
 
 mkdir -p ~/.WineApps/Adobe-Photoshop
 
@@ -25,26 +30,30 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop $WINETRICKS_FILE win10
 if [ ! -f "$ALLREDIST_FILE" ]; then
 	curl -L $ALLREDIST_URL > $ALLREDIST_FILE
 	if [ 0 -ne $? ]; then
-		echo "ERROR: could not download $ALLREDIST_URL. Please check the output above."
+		echo "${RED}ERROR: could not download $ALLREDIST_URL. Please check the output above.${ENDCOLOR}"
 		exit 1
 	fi
+else
+	echo "${CYAN}INFO: $ALLREDIST_FILE already exists. Using it.${ENDCOLOR}"
 fi
 
 if [ ! -f "$PHOTOSHOP_FILE" ]; then
 	curl -L $PHOTOSHOP_URL > $PHOTOSHOP_FILE
 	if [ 0 -ne $? ]; then
-		echo "ERROR: could not download $PHOTOSHOP_URL. Please check the output above."
+		echo "${RED}ERROR: could not download $PHOTOSHOP_URL. Please check the output above.${ENDCOLOR}"
 		exit 1
 	fi
+else
+	echo "${CYAN}INFO: $PHOTOSHOP_FILE already exists. Using it.${ENDCOLOR}"
 fi
 
 if ! md5sum --status -c <(echo $ALLREDIST_MD5 $ALLREDIST_FILE); then
-	echo "ERROR: md5sum of $ALLREDIST_FILE did not match! Please download the file again."
+	echo "${RED}ERROR: md5sum of $ALLREDIST_FILE did not match! Please download the file again.${ENDCOLOR}"
 	exit 1
 fi
 
 if ! md5sum --status -c <(echo $PHOTOSHOP_MD5 $PHOTOSHOP_FILE); then
-	echo "ERROR: md5sum of $PHOTOSHOP_FILE did not match! Please download the file again."
+	echo "${RED}ERROR: md5sum of $PHOTOSHOP_FILE did not match! Please download the file again.${ENDCOLOR}"
 	exit 1
 fi
 
@@ -73,24 +82,24 @@ mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
 while true; do
-	read -p "Do you want to install CameraRaw?" yn
+	read -p "${GREEN}Do you want to install CameraRaw?${ENDCOLOR}" yn
 	case $yn in
 		[Yy]* ) 
 			echo "Just follow the setup from CameraRaw."
 			curl -L $CAMERA_RAW_URL > $CAMERA_RAW_FILE
 			if [ 0 -ne $? ]; then
-				echo "ERROR: could not download $CAMERA_RAW_URL. Please check the output above."
-				echo "INFO: You can download CameraRaw manually and install it with:"
-				echo "INFO: WINEPREFIX=~/.WineApps/Adobe-Photoshop wine <PATH_TO_CAMERARAW.EXE>"
+				echo "${RED}ERROR: could not download $CAMERA_RAW_URL. Please check the output above.${ENDCOLOR}"
+				echo "${CYAN}INFO: You can download CameraRaw manually and install it with:${ENDCOLOR}"
+				echo "${CYAN}INFO: WINEPREFIX=~/.WineApps/Adobe-Photoshop wine <PATH_TO_CAMERARAW.EXE>${ENDCOLOR}"
 			fi
 			WINEPREFIX=~/.WineApps/Adobe-Photoshop wine $CAMERA_RAW_FILE
 			break;;
 		[Nn]* ) break;;
-		* ) echo "Please answer (y)es or (n)o.";;
+		* ) echo "Please answer (y)es or (n)o.${ENDCOLOR}";;
 	esac
 
 while true; do
-	read -p "Do you want to remove all installation artifacts?" yn
+	read -p "${GREEN}Do you want to remove all installation artifacts?${ENDCOLOR}" yn
 	case $yn in
 		[Yy]* )
 			rm -rf $ALLREDIST_FILE $PHOTOSHOP_FILE ./allredist $WINETRICKS_FILE $CAMERA_RAW_FILE
@@ -99,4 +108,4 @@ while true; do
 		* ) echo "Please answer (y)es or (n)o.";;
 	esac
 	
-echo "INFO: Have fun with Photoshop!"
+echo "${CYAN}INFO: Have fun with Photoshop!${ENDCOLOR}"
