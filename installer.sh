@@ -7,12 +7,11 @@ PHOTOSHOP_FILE = "./AdobePhotoshop2021.tar.xz"
 PHOTOSHOP_MD5 = "cccb6715180b86e1eb8c1d7bd4a8a4e8"
 WINETRICKS_URL = "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks"
 WINETRICKS_FILE = "./winetricks"
+CAMERA_RAW_URL = "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe"
+CAMERA_RAW_FILE = "./CameraRaw.exe"
 
-echo "Welcome to Photoshop installer"
-echo "Would you like to install Camera Raw with photoshop ? (This will prompt the camera raw installer at the end)"
-echo "1 = yes 0 = no"
-cameraraw=1
-read cameraraw
+echo "Welcome! I am going to install Photoshop on your Linux Machine."
+echo "This will take up to 10 Minutes so pleae be patient."
 
 mkdir -p ~/.WineApps/Adobe-Photoshop
 
@@ -65,18 +64,26 @@ mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
-if [ $cameraraw = "1" ]; then
-	echo "Just follow the setup from Camera Raw."
-	curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
-	WINEPREFIX=~/.WineApps/Adobe-Photoshop wine CameraRaw_12_2_1.exe
-fi
-
-echo "Installation finished!"
 while true; do
-	read -p "Do you want to remove all installation artifacts?" yn
-	case $yn info
-		[Yy]* ) rm -rf $ALLREDIST_FILE $PHOTOSHOP_FILE ./allredist $WINETRICKS_FILE; break;;
+	read -p "Do you want to install CameraRaw?" yn
+	case $yn in
+		[Yy]* ) 
+			echo "Just follow the setup from CameraRaw."
+			curl -L $CAMERA_RAW_URL > $CAMERA_RAW_FILE
+			WINEPREFIX=~/.WineApps/Adobe-Photoshop wine $CAMERA_RAW_FILE
+			break;;
 		[Nn]* ) break;;
 		* ) echo "Please answer (y)es or (n)o.";;
+	esac
+
+while true; do
+	read -p "Do you want to remove all installation artifacts?" yn
+	case $yn in
+		[Yy]* )
+			rm -rf $ALLREDIST_FILE $PHOTOSHOP_FILE ./allredist $WINETRICKS_FILE $CAMERA_RAW_FILE
+			break;;
+		[Nn]* ) break;;
+		* ) echo "Please answer (y)es or (n)o.";;
+	esac
 	
 echo "Have fun with Photoshop!"
