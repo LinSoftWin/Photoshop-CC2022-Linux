@@ -5,6 +5,7 @@ ALLREDIST_MD5 = "8bfab2e4a4682d9bcf79926544053b76"
 PHOTOSHOP_URL = "https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz"
 PHOTOSHOP_FILE = "./AdobePhotoshop2021.tar.xz"
 PHOTOSHOP_MD5 = "cccb6715180b86e1eb8c1d7bd4a8a4e8"
+WINETRICKS_URL = "https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks"
 WINETRICKS_FILE = "./winetricks"
 
 echo "Welcome to Photoshop installer"
@@ -15,7 +16,7 @@ read cameraraw
 
 mkdir -p ~/.WineApps/Adobe-Photoshop
 
-curl -L https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > $WINETRICKS_FILE
+curl -L $WINETRICKS_URL > $WINETRICKS_FILE
 chmod +x $WINETRICKS_FILE
 
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wineboot
