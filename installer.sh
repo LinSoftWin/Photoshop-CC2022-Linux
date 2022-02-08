@@ -84,7 +84,7 @@ mv allredist/photoshop.desktop ~/.local/share/applications
 
 echo -e "${CYAN}"
 while true; do
-	read -p "Do you want to install CameraRaw?" yn
+	read -p "QUESTION: Do you want to install CameraRaw? " yn
 	case $yn in
 		[Yy]* ) 
 			echo -e "${CYAN}Just follow the setup from CameraRaw.${ENDCOLOR}"
@@ -103,7 +103,7 @@ done
 
 echo -e "${CYAN}"
 while true; do
-	read -p "Do you want to remove all installation artifacts?" yn
+	read -p "QUESTION: Do you want to remove all installation artifacts? " yn
 	case $yn in
 		[Yy]* )
 			rm -rf $ALLREDIST_FILE $PHOTOSHOP_FILE ./allredist $WINETRICKS_FILE $CAMERA_RAW_FILE
