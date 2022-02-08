@@ -41,17 +41,17 @@ tar -xf $ALLREDIST_FILE
 tar -xf $PHOTOSHOP_FILE
 
 WINEPREFIX=~/.WineApps/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2010/vcredist_x64.exe /q /norestart
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2010/vcredist_x86.exe /q /norestart
+WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2010/vcredist_x64.exe /q /norestart
+WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2010/vcredist_x86.exe /q /norestart
 
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2012/vcredist_x86.exe /install /quiet /norestart
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2012/vcredist_x64.exe /install /quiet /norestart
+WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2012/vcredist_x86.exe /install /quiet /norestart
+WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2012/vcredist_x64.exe /install /quiet /norestart
 
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2013/vcredist_x86.exe /install /quiet /norestart
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2013/vcredist_x64.exe /install /quiet /norestart
+WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2013/vcredist_x86.exe /install /quiet /norestart
+WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2013/vcredist_x64.exe /install /quiet /norestart
 
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2019/VC_redist.x64.exe /install /quiet /norestart
-WINEPREFIX=~/.WineApps/Adobe-Photoshop wine redist/2019/VC_redist.x86.exe /install /quiet /norestart
+WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
+WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
 
 WINEPREFIX=~/.WineApps/Adobe-Photoshop sh setup_vkd3d_proton.sh install
 mkdir ~/.WineApps/Adobe-Photoshop/drive_c/Program\ Files/Adobe
