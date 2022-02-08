@@ -61,18 +61,11 @@ mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
-rm -rf redist
-rm -rf winetricks
-rm -rf winetricks.1
-rm -rf x86
-rm -rf x64
-rm -rf setup_vkd3d_proton.sh
 if [ $cameraraw = "1" ]
 then
 echo "Just follow the setup from Camera Raw."
 curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wine CameraRaw_12_2_1.exe
-rm -rf CameraRaw_12_2_1.exe
 else
 	echo ""
 fi
