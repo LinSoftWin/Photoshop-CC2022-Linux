@@ -16,10 +16,12 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop wineboot
 WINEPREFIX=~/.WineApps/Adobe-Photoshop ./winetricks win10
 
 curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > allredist.tar.xz
-tar -xf allredist.tar.xz -C allredist
+mkdir allredist
+tar -xf allredist.tar.xz -C allredist/
 rm -rf allredist.tar.xz
 curl -L "https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz" > AdobePhotoshop2021.tar.xz
-tar -xf AdobePhotoshop2021.tar.xz -C AdobePhotoshop2021
+mkdir AdobePhotoshop2021
+tar -xf AdobePhotoshop2021.tar.xz -C AdobePhotoshop2021/
 rm -rf AdobePhotoshop2021.tar.xz
 
 
