@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Welcome to Photoshop installer"
-echo "Would you like to install Camera Raw with photoshop ? (This will prompt the camera raw installer at the end)"
-echo "1 = yes 0 = no"
+echo "Would you like to install Camera Raw with photoshop? (This will prompt the camera raw installer at the end)"
+echo "1 - Yes, 0 - No"
 cameraraw=1
 read cameraraw
 
@@ -58,4 +58,5 @@ rm -rf CameraRaw_12_2_1.exe
 else
 	echo ""
 fi
-zenity --info --text="Installation finished, Have fun with Photoshop !"
+
+zenity --info --text="Installation finished, Have fun with Photoshop!"
