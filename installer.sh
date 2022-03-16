@@ -17,10 +17,9 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop ./winetricks win10
 
 curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > allredist.tar.xz
 mkdir allredist
-tar -xf allredist.tar.xz -C
+tar -xf allredist.tar.xz
 rm -rf allredist.tar.xz
-curl -L "https://download854.mediafire.com/kj7h8gkorsvg/dhvztovo7gj738e/AdobePhotoshop2021.tar.xz" > AdobePhotoshop2021.tar.xz
-mkdir AdobePhotoshop2021
+curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > AdobePhotoshop2021.tar.xz
 tar -xf AdobePhotoshop2021.tar.xz
 rm -rf AdobePhotoshop2021.tar.xz
 
@@ -40,15 +39,13 @@ WINEPREFIX=~/.WineApps/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.
 
 WINEPREFIX=~/.WineApps/Adobe-Photoshop sh allredist/setup_vkd3d_proton.sh install
 mkdir ~/.WineApps/Adobe-Photoshop/drive_c/Program\ Files/Adobe
-mv AdobePhotoshop2021/Adobe\ Photoshop\ 2021 ~/.WineApps/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
+mv Adobe\ Photoshop\ 2021 ~/.WineApps/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
 mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
 rm -rf allredist
 rm -rf winetricks
-rm -rf winetricks.1
-rm -rf setup_vkd3d_proton.sh
 if [ $cameraraw = "1" ]
 then
 echo "Just follow the setup from Camera Raw."
