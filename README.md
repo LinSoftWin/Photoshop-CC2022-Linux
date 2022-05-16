@@ -13,13 +13,6 @@ This git repo contains an installer for photoshop CC 2022 on linux with wine.
 
 ## Usage : 
 
-**CLI :**
-
-For CLI install use the sh file and add the path to the install folder : 
-
-`sh photoshop2022install.sh /path/to/your/folder`
-
-
 **GUI :**
 
 Open photoshop installer :
