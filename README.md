@@ -1,5 +1,8 @@
 # Photoshop-CC2021-Linux
 
+**SOON PHOTOSHOP 2022**
+https://www.youtube.com/watch?v=tFl4eHB_u3g
+
 **DISCLAIMER :**
 **Please use this software only if you have an active Photoshop subscription. I'm not responsable of any use without subscription.**
 
