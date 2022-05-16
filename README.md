@@ -1,4 +1,4 @@
-# Photoshop-CC2021-Linux
+# Photoshop-CC2022-Linux
 
 **SOON PHOTOSHOP 2022**
 https://www.youtube.com/watch?v=tFl4eHB_u3g
@@ -6,9 +6,41 @@ https://www.youtube.com/watch?v=tFl4eHB_u3g
 **DISCLAIMER :**
 **Please use this software only if you have an active Photoshop subscription. I'm not responsable of any use without subscription.**
 
-This git repo contains an installer for photoshop CC 2021 on linux with wine.
-Just open a terminal in the folder where the script is located and type "sh install.sh" (without "")
-An uninstaller is given with it too just open a terminal in the folder where the script is located and type "sh uninstall.sh"  (without "")
+This git repo contains an installer for photoshop CC 2022 on linux with wine.
+
+
+![Screenshot from 2022-05-17 00-02-27](https://user-images.githubusercontent.com/52078885/168690419-274020b0-c993-4b86-a58f-f0f07237aa4f.png)
+
+## Usage : 
+
+**CLI :**
+
+For CLI install use the sh file and add the path to the install folder : 
+
+`sh photoshop2022install.sh /path/to/your/folder`
+
+
+**GUI :**
+
+Open photoshop installer :
+
+![Screenshot from 2022-05-17 00-14-15](https://user-images.githubusercontent.com/52078885/168692144-a1819955-c541-4248-bca2-ef4ed248e4bf.png)
+
+Click on install and chose the install folder (You must have acces to it):
+
+![Screenshot from 2022-05-17 00-14-56](https://user-images.githubusercontent.com/52078885/168692184-62e2c937-fa4b-43e8-ab8a-449015b42994.png)
+
+Wait for the install (It can take a long time depending on your internet and computer speed) :
+
+![Screenshot from 2022-05-17 00-17-28](https://user-images.githubusercontent.com/52078885/168692197-c861e67a-01e0-436d-8169-6d23a0aa4edb.png)
+
+Once it's done you can close the window :
+
+![Screenshot from 2022-05-17 00-20-39](https://user-images.githubusercontent.com/52078885/168692210-7093c10d-310d-45f4-98fb-0d8eb25609f5.png)
+
+Then you can launch Photoshop :
+
+![Screenshot from 2022-05-17 00-21-04](https://user-images.githubusercontent.com/52078885/168692218-dd1dd912-83a8-4746-aafa-da7f0a9673c3.png)
 
 ## Requirements
 - wine >=6.1 (Avoid 6.20 to 6.22)
