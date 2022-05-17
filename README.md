@@ -38,6 +38,10 @@ Then you can launch Photoshop :
 
 ![Screenshot from 2022-05-17 00-21-04](https://user-images.githubusercontent.com/52078885/168692218-dd1dd912-83a8-4746-aafa-da7f0a9673c3.png)
 
+**Uninstalling :**
+
+To uninstall remove the photoshop desktop file in *~/.local/share/applications/* then your installation folder
+
 ## Requirements
 - wine >=6.1 (Avoid 6.20 to 6.22)
 - zenity
