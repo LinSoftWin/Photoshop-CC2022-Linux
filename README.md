@@ -49,7 +49,7 @@ Then you can launch Photoshop :
 - Vulkan capable GPU or APU
 
 
-##Donate
+## Donate
 
 This isn't necessary but it helps paying the hosting server
 
