@@ -53,6 +53,10 @@ Then you can launch Photoshop :
 
 This isn't necessary but it helps paying the hosting server
 
+
+
 BTC : 1LDKrdTKGHtGRjDSL2ULxGGzX4onL5YUsp
+
 ETH : 0x57bf06a94ead7b18beb237e9aec9ae3ef06fe29a
+
 BUSD : 0x57bf06a94ead7b18beb237e9aec9ae3ef06fe29a
