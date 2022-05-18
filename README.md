@@ -18,6 +18,11 @@ If you use something from my repo in your project please credit me
 
 ## Usage : 
 
+**CLI :**
+
+`sh photoshop2022install.sh /path/to/your/install/folder`
+
+
 **GUI :**
 
 Open photoshop installer :
