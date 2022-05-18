@@ -48,7 +48,7 @@ rm -rf allredist
 rm -rf winetricks
 if [ $cameraraw = "1" ]
 then
-echo "Just follow the setup from Camera Raw."
+echo "Just follow the setup from Camera Raw..."
 curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
 WINEPREFIX=~/.WineApps/Adobe-Photoshop wine CameraRaw_12_2_1.exe
 rm -rf CameraRaw_12_2_1.exe
