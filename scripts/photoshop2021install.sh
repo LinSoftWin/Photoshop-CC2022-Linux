@@ -68,8 +68,8 @@ echo "90" >> $1/progress.mimifile
 sh allredist/setup_vkd3d_proton.sh install
 
 
-mkdir "$WINEPREFIX/drive_c/Program\ Files/Adobe"
-mv Adobe\ Photoshop\ 2021 "$WINEPREFIX/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021"
+mkdir "$WINEPREFIX/drive_c/Program Files/Adobe"
+mv "Adobe Photoshop 2021" "$WINEPREFIX/drive_c/Program Files/Adobe/Adobe Photoshop 2021"
 
 touch "$WINEPREFIX/drive_c/launcher.sh"
 echo '#!/usr/bin/env bash' >> "$WINEPREFIX/drive_c/launcher.sh"
@@ -79,7 +79,7 @@ echo 'RESOURCES_PATH="$SCR_PATH/resources"' >> "$WINEPREFIX/drive_c/launcher.sh"
 echo 'WINE_PREFIX="$SCR_PATH/prefix"' >> "$WINEPREFIX/drive_c/launcher.sh"
 echo 'FILE_PATH=$(winepath -w "$1")' >> "$WINEPREFIX/drive_c/launcher.sh"
 echo 'export WINEPREFIX="'$WINEPREFIX'"' >> "$WINEPREFIX/drive_c/launcher.sh"
-echo 'WINEPREFIX="'$WINEPREFIX'" DXVK_LOG_PATH="'$WINEPREFIX'" DXVK_STATE_CACHE_PATH="'$WINEPREFIX'" wine64 ' $WINEPREFIX'/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe $FILE_PATH' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'WINEPREFIX="'$WINEPREFIX'" DXVK_LOG_PATH="'$WINEPREFIX'" DXVK_STATE_CACHE_PATH="'$WINEPREFIX'" wine64 ' $WINEPREFIX'/drive_c/Progra\ Files/Adobe/Adobe Photoshop 2021/photoshop.exe $FILE_PATH' >> "$WINEPREFIX/drive_c/launcher.sh"
 
 chmod +x $WINEPREFIX/drive_c/launcher.sh
 

@@ -39,7 +39,7 @@ wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
 
 sh allredist/setup_vkd3d_proton.sh install
 mkdir -p "$WINEPREFIX/drive_c/Program Files/Adobe"
-mv Adobe\ Photoshop\ 2021 "$WINEPREFIX/drive_c/Program Files/Adobe/Adobe Photoshop 2021"
+mv "Adobe Photoshop 2021" "$WINEPREFIX/drive_c/Program Files/Adobe/Adobe Photoshop 2021"
 mv allredist/launcher.sh "$WINEPREFIX/drive_c"
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications

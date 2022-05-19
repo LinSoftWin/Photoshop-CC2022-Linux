@@ -72,8 +72,8 @@ rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "90" >> $1/progress.mimifile
 
-mkdir -p "$WINEPREFIX/drive_c/Program\ Files/Adobe"
-mv Adobe\ Photoshop\ 2022 "$WINEPREFIX/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2022"
+mkdir -p "$WINEPREFIX/drive_c/Program Files/Adobe"
+mv "Adobe Photoshop 2022" "$WINEPREFIX/drive_c/Program Files/Adobe/Adobe Photoshop 2022"
 
 touch "$WINEPREFIX/drive_c/launcher.sh"
 echo '#!/usr/bin/env bash' >> "$WINEPREFIX/drive_c/launcher.sh"
@@ -83,11 +83,11 @@ echo 'RESOURCES_PATH="$SCR_PATH/resources"' >> "$WINEPREFIX/drive_c/launcher.sh"
 echo 'WINE_PREFIX="$SCR_PATH/prefix"' >> "$WINEPREFIX/drive_c/launcher.sh"
 echo 'FILE_PATH=$(winepath -w "$1")' >> "$WINEPREFIX/drive_c/launcher.sh"
 echo 'export WINEPREFIX="'$WINEPREFIX'"' >> "$WINEPREFIX/drive_c/launcher.sh"
-echo 'WINEPREFIX='$WINEPREFIX' DXVK_LOG_PATH='$WINEPREFIX' DXVK_STATE_CACHE_PATH='$WINEPREFIX' wine64 ' $WINEPREFIX'/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2022/photoshop.exe $FILE_PATH' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'WINEPREFIX='$WINEPREFIX' DXVK_LOG_PATH='$WINEPREFIX' DXVK_STATE_CACHE_PATH='$WINEPREFIX' wine64 "'$WINEPREFIX'/drive_c/Program Files/Adobe/Adobe Photoshop 2022/photoshop.exe" '$FILE_PATH'' >> "$WINEPREFIX/drive_c/launcher.sh"
 
 chmod +x "$WINEPREFIX/drive_c/launcher.sh"
 
-rm -rf Adobe\ Photoshop\ 2022
+rm -rf "Adobe Photoshop 2022"
 
 winecfg -v win10
 
@@ -99,9 +99,9 @@ curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe_Ph
 tar -xf Adobe_Photoshop_2022_Settings.tar.xz
 mkdir "$WINEPREFIX/drive_c/users/$USER/AppData/Roaming/Adobe"
 mkdir "$WINEPREFIX/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe Photoshop 2022/"
-mv Adobe\ Photoshop\ 2022\ Settings "$WINEPREFIX/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe\ Photoshop\ 2022/"
+mv "Adobe Photoshop 2022 Settings" "$WINEPREFIX/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe Photoshop 2022/"
 rm -rf Adobe_Photoshop_2022_Settings.tar.xz
-rm -rf Adobe\ Photoshop\ 2022\ Settings
+rm -rf "Adobe Photoshop 2022 Settings"
 
 
 touch ~/.local/share/applications/photoshop.desktop
