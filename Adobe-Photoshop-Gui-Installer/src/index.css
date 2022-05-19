@@ -1,0 +1,81 @@
+html{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: -24px;
+}
+
+#container{
+  top: 0px;
+  margin-top: 0px;
+}
+
+#header{
+  background-color: rgb(26, 26, 26);
+  top: 0px;
+  margin-top: 0px;
+  padding: 10px;
+}
+
+h3{
+  color: rgb(182, 182, 182);
+  font-weight: normal;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+#Status{
+  color: white;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+#statusbar{
+  height: 5px;
+  width: 0%;
+  background-color: blue;
+}
+
+#productinfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 70vh;
+}
+
+#productinfo img{
+  width: 150px;
+}
+
+h2{
+  font-size: 40px;
+  font-weight: normal;
+}
+
+h4{
+  text-align: center;
+  width: 90%;
+  font-weight: normal;
+}
+
+#installbtn{
+  background-color: rgb(0, 102, 255);
+  border-radius: 10px;
+  font-size: 14px;
+  height: 50px;
+  width: 150px;
+  border-style: none;
+  box-shadow: none;
+  color: white;
+  font-weight: bold;
+}
