@@ -1,10 +1,9 @@
 
-mkdir $1/Adobe-Photoshop
-
 wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 
 export WINEPREFIX=$1/Adobe-Photoshop
+mkdir -p "$WINEPREFIX"
 wineboot
 
 rm -rf $1/progress.mimifile
@@ -69,20 +68,19 @@ echo "90" >> $1/progress.mimifile
 sh allredist/setup_vkd3d_proton.sh install
 
 
-mkdir $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe
-mv Adobe\ Photoshop\ 2021 $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
+mkdir "$WINEPREFIX/drive_c/Program\ Files/Adobe"
+mv Adobe\ Photoshop\ 2021 "$WINEPREFIX/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021"
 
-touch $1/Adobe-Photoshop/drive_c/launcher.sh
-echo '#!/usr/bin/env bash' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'SCR_PATH="pspath"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'CACHE_PATH="pscache"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'RESOURCES_PATH="$SCR_PATH/resources"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'WINE_PREFIX="$SCR_PATH/prefix"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'FILE_PATH=$(winepath -w "$1")' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'export WINEPREFIX="'$1'/Adobe-Photoshop"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'WINEPREFIX='$1'/Adobe-Photoshop DXVK_LOG_PATH='$1'/Adobe-Photoshop DXVK_STATE_CACHE_PATH='$1'/Adobe-Photoshop wine64 ' $1'/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe $FILE_PATH' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-
-chmod +x $1/Adobe-Photoshop/drive_c/launcher.sh
+touch "$WINEPREFIX/drive_c/launcher.sh"
+echo '#!/usr/bin/env bash' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'SCR_PATH="pspath"' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'CACHE_PATH="pscache"' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'RESOURCES_PATH="$SCR_PATH/resources"' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'WINE_PREFIX="$SCR_PATH/prefix"' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'FILE_PATH=$(winepath -w "$1")' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'export WINEPREFIX="'$WINEPREFIX'"' >> "$WINEPREFIX/drive_c/launcher.sh"
+echo 'WINEPREFIX="'$WINEPREFIX'" DXVK_LOG_PATH="'$WINEPREFIX'" DXVK_STATE_CACHE_PATH="'$WINEPREFIX'" wine64 ' $WINEPREFIX'/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe $FILE_PATH' >> "$WINEPREFIX/drive_c/launcher.sh"
+chmod +x "$WINEPREFIX/drive_c/launcher.sh"
 
 winecfg -v win10
 
@@ -93,7 +91,7 @@ mv allredist/photoshop.png ~/.local/share/icons
 touch ~/.local/share/applications/photoshop.desktop
 echo '[Desktop Entry]' >> ~/.local/share/applications/photoshop.desktop
 echo 'Name=Photoshop CC 2021' >> ~/.local/share/applications/photoshop.desktop
-echo 'Exec=bash -c "'$1'/Adobe-Photoshop/drive_c/launcher.sh %F"' >> ~/.local/share/applications/photoshop.desktop
+echo 'Exec=bash -c "'$WINEPREFIX'/drive_c/launcher.sh %F"' >> ~/.local/share/applications/photoshop.desktop
 echo 'Type=Application' >> ~/.local/share/applications/photoshop.desktop
 echo 'Comment=Photoshop CC 2021 (Wine)' >> ~/.local/share/applications/photoshop.desktop
 echo 'Categories=Graphics;' >> ~/.local/share/applications/photoshop.desktop

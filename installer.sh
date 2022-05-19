@@ -6,8 +6,7 @@ echo "1 - Yes, 0 - No"
 cameraraw=1
 read cameraraw
 
-mkdir ~/.WineApps
-mkdir ~/.WineApps/Adobe-Photoshop
+mkdir -p "$WINEPREFIX"
 
 wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
@@ -39,9 +38,9 @@ wine allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
 wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
 
 sh allredist/setup_vkd3d_proton.sh install
-mkdir ~/.WineApps/Adobe-Photoshop/drive_c/Program\ Files/Adobe
-mv Adobe\ Photoshop\ 2021 ~/.WineApps/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
-mv allredist/launcher.sh ~/.WineApps/Adobe-Photoshop/drive_c
+mkdir -p "$WINEPREFIX/drive_c/Program Files/Adobe"
+mv Adobe\ Photoshop\ 2021 "$WINEPREFIX/drive_c/Program Files/Adobe/Adobe Photoshop 2021"
+mv allredist/launcher.sh "$WINEPREFIX/drive_c"
 mv allredist/photoshop.png ~/.local/share/icons
 mv allredist/photoshop.desktop ~/.local/share/applications
 
