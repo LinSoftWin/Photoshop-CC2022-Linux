@@ -4,13 +4,14 @@ mkdir $1/Adobe-Photoshop
 wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 
-WINEPREFIX=$1/Adobe-Photoshop wineboot
+export WINEPREFIX=$1/Adobe-Photoshop
+wineboot
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "10" >> $1/progress.mimifile
 
-WINEPREFIX=$1/Adobe-Photoshop ./winetricks win10
+./winetricks win10
 
 curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/allredist.tar.xz" > allredist.tar.xz
 mkdir allredist
@@ -47,24 +48,24 @@ touch $1/progress.mimifile
 echo "70" >> $1/progress.mimifile
 
 
-WINEPREFIX=$1/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk win10
+./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk win10
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "80" >> $1/progress.mimifile
 
 
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2010/vcredist_x64.exe /q /norestart
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2010/vcredist_x86.exe /q /norestart
+wine allredist/redist/2010/vcredist_x64.exe /q /norestart
+wine allredist/redist/2010/vcredist_x86.exe /q /norestart
 
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2012/vcredist_x86.exe /install /quiet /norestart
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2012/vcredist_x64.exe /install /quiet /norestart
+wine allredist/redist/2012/vcredist_x86.exe /install /quiet /norestart
+wine allredist/redist/2012/vcredist_x64.exe /install /quiet /norestart
 
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2013/vcredist_x86.exe /install /quiet /norestart
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2013/vcredist_x64.exe /install /quiet /norestart
+wine allredist/redist/2013/vcredist_x86.exe /install /quiet /norestart
+wine allredist/redist/2013/vcredist_x64.exe /install /quiet /norestart
 
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
+wine allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
+wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
 
 
 rm -rf $1/progress.mimifile
@@ -88,7 +89,7 @@ chmod +x $1/Adobe-Photoshop/drive_c/launcher.sh
 
 rm -rf Adobe\ Photoshop\ 2022
 
-WINEPREFIX=$1/Adobe-Photoshop winecfg -v win10
+winecfg -v win10
 
 
 mv allredist/photoshop.png ~/.local/share/icons
