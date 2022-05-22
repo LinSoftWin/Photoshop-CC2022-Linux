@@ -8,7 +8,7 @@ https://www.youtube.com/watch?v=tFl4eHB_u3g
 
 This git repo contains an installer for photoshop CC 2022 on linux with wine.
 
-Note that Photoshop CC 2022 is only in the GUI installer
+Note that Photoshop CC 2022 isn't as stable as the CC2021 version on linux. If you need a production environement, concidere using PS2021 instead
 
 If you use something from my repo in your project please credit me
 
