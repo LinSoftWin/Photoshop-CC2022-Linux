@@ -61,7 +61,7 @@ To uninstall remove the photoshop desktop file in *~/.local/share/applications/*
 
 
 ## Special thanks to
-- The WineHQ team : For makeing wine
+- The WineHQ team : For making wine
 - Gictorbit : For initial inspiration
 - HansKristian-Work : For making VKD3D-Proton
 - Adobe : For making Photoshop (also please release an official version for linux...)
