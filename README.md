@@ -60,6 +60,15 @@ To uninstall remove the photoshop desktop file in *~/.local/share/applications/*
 - Vulkan capable GPU or APU
 
 
+## Special thanks to
+- The WineHQ team : For makeing wine
+- Gictorbit : For initial inspiration
+- HansKristian-Work : For making VKD3D-Proton
+- Adobe : For making Photoshop (also please release an official version for linux...)
+
+
+
+
 ## Donate
 
 This isn't necessary but it helps paying the hosting server
