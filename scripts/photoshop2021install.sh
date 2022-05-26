@@ -86,7 +86,7 @@ chmod +x $1/Adobe-Photoshop/drive_c/launcher.sh
 WINEPREFIX=$1/Adobe-Photoshop winecfg -v win10
 
 
-mv allredist/photoshop.png ~/.local/share/icons
+mv allredist/photoshop.png ~/.local/share/icons/photoshop.png
 
 
 touch ~/.local/share/applications/photoshop.desktop

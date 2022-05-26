@@ -91,7 +91,7 @@ rm -rf Adobe\ Photoshop\ 2022
 WINEPREFIX=$1/Adobe-Photoshop winecfg -v win10
 
 
-mv allredist/photoshop.png ~/.local/share/icons
+mv allredist/photoshop.png ~/.local/share/icons/photoshop.png
 
 
 curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe_Photoshop_2022_Settings.tar.xz" > Adobe_Photoshop_2022_Settings.tar.xz
