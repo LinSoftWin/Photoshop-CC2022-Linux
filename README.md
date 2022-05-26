@@ -14,8 +14,8 @@ If you use something from my repo in your project please credit me
 
 | Version  | Rating |
 | ------------- | ------------- |
-| CC 2021  | Works almost like on Windows  |
-| CC 2022  | Not ready for production... Basic functions works, No GPU acceleration  |
+| [CC 2021](https://github.com/MiMillieuh/Photoshop-CC2022-Linux/releases/tag/2.1.1)  | Works almost like on Windows  |
+| [CC 2022](https://github.com/MiMillieuh/Photoshop-CC2022-Linux/releases/tag/2.1.1)  | Not ready for production... Basic functions works, No GPU acceleration  |
 
 ![Screenshot from 2022-05-17 00-02-27](https://user-images.githubusercontent.com/52078885/168690419-274020b0-c993-4b86-a58f-f0f07237aa4f.png)
 
