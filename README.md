@@ -12,6 +12,11 @@ Note that Photoshop CC 2022 isn't as stable as the CC2021 version on linux. If y
 
 If you use something from my repo in your project please credit me
 
+| Version  | Rating |
+| ------------- | ------------- |
+| CC 2021  | Works almost like on Windows  |
+| CC 2022  | Not ready for production... Basic functions works, No GPU acceleration  |
+
 ![Screenshot from 2022-05-17 00-02-27](https://user-images.githubusercontent.com/52078885/168690419-274020b0-c993-4b86-a58f-f0f07237aa4f.png)
 
 *File download is about 2GB*
