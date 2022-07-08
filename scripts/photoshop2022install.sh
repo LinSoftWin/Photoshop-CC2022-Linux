@@ -71,7 +71,7 @@ rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "90" >> $1/progress.mimifile
 
-WINEPREFIX=$1/Adobe-Photoshop sh allredist/setup_vkd3d_proton.sh install
+#WINEPREFIX=$1/Adobe-Photoshop sh allredist/setup_vkd3d_proton.sh install
 
 mkdir $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe
 mv Adobe\ Photoshop\ 2022 $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2022
