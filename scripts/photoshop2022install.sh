@@ -66,6 +66,9 @@ WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2013/vcredist_x64.exe /insta
 WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
 WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
 
+curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/wine-tkg-staging-pspatch.tar.xz" > wine-tkg-staging-pspatch.tar.xz
+tar -xf wine-tkg-staging-pspatch.tar.xz
+mv wine-tkg-staging-pspatch $1/drive_c/
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
@@ -84,7 +87,7 @@ echo 'RESOURCES_PATH="$SCR_PATH/resources"' >> $1/Adobe-Photoshop/drive_c/launch
 echo 'WINE_PREFIX="$SCR_PATH/prefix"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
 echo 'FILE_PATH=$(winepath -w "$1")' >> $1/Adobe-Photoshop/drive_c/launcher.sh
 echo 'export WINEPREFIX="'$1'/Adobe-Photoshop"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'WINEPREFIX='$1'/Adobe-Photoshop DXVK_LOG_PATH='$1'/Adobe-Photoshop DXVK_STATE_CACHE_PATH='$1'/Adobe-Photoshop wine64 ' $1'/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2022/photoshop.exe $FILE_PATH' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'WINEPREFIX='$1'/Adobe-Photoshop DXVK_LOG_PATH='$1'/Adobe-Photoshop DXVK_STATE_CACHE_PATH='$1'/Adobe-Photoshop '$1'/Adobe-Photoshop/drive_c/wine-tkg-staging-pspatch/bin/wine64 ' $1'/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2022/photoshop.exe $FILE_PATH' >> $1/Adobe-Photoshop/drive_c/launcher.sh
 
 chmod +x $1/Adobe-Photoshop/drive_c/launcher.sh
 
