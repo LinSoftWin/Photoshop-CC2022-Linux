@@ -69,6 +69,7 @@ WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.exe /inst
 curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/wine-tkg-staging-pspatch.tar.xz" > wine-tkg-staging-pspatch.tar.xz
 tar -xf wine-tkg-staging-pspatch.tar.xz
 mv wine-tkg-staging-pspatch/ $1/Adobe-Photoshop/drive_c/
+rm -rf wine-tkg-staging-pspatch.tar.xz
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
