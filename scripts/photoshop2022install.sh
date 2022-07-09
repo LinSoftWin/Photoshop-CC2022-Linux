@@ -47,7 +47,7 @@ touch $1/progress.mimifile
 echo "70" >> $1/progress.mimifile
 
 
-WINEPREFIX=$1/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk win10
+WINEPREFIX=$1/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk win10 vkd3d
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
