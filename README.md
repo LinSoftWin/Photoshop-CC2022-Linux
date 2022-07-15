@@ -55,7 +55,7 @@ Then you can launch Photoshop :
 To uninstall remove the photoshop desktop file in *~/.local/share/applications/* then your installation folder
 
 ## Requirements
-- wine >=6.1 (Avoid 6.20 to 6.22)
+- wine >=6.1 (Avoid 6.20 to 6.22 **DON'T USE STAGING**)
 - zenity
 - appmenu-gtk-module
 - tar
