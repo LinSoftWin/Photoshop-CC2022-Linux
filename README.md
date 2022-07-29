@@ -1,5 +1,7 @@
 # Photoshop-CC2022-Linux
 
+## Please be aware that my server will be offline for a few hours, I'm trying to be as fast as possible.
+
 **I FINALLY MADE IT**
 https://www.youtube.com/watch?v=tFl4eHB_u3g
 
