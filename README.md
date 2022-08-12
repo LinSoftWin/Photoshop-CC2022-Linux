@@ -2,7 +2,7 @@
 
 ## Important
 
-**Please note that the GUI version might not work on your distribution. it worked with some older packager and has broken since. if you used the GUI and it hasn't worked, please try to use the CLI installer wieh a sh file in the RELEASE section. (avoid cloning)**
+**Please note that the GUI version might not work on your distribution. it worked with some older packager and has broken since. if you used the GUI and it hasn't worked, please try to use the CLI installer wieh a sh file in the RELEASE section. (avoid cloning as master branche can have experimental changes)**
 
 **DISCLAIMER :**
 **Please use this software only if you have an active Photoshop subscription. I'm not responsable of any use without subscription.**
