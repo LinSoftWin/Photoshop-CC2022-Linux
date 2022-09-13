@@ -66,7 +66,7 @@ rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "90" >> $1/progress.mimifile
 
-chmod+x allredist/setup_vkd3d_proton.sh install
+chmod +x allredist/setup_vkd3d_proton.sh install
 WINEPREFIX=$1/Adobe-Photoshop ./allredist/setup_vkd3d_proton.sh install
 
 
