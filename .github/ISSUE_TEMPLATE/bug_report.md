@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+**PLEASE READ THE REQUIREMENT BEFORE FILLING A BUG. ALSO PLEASE CHECK IF A SIMILLAR ISSUE ISN'T OPEN**
+
 **Photoshop version**
 eg : CC2021
 
@@ -29,6 +31,7 @@ If applicable, add screenshots to help explain your problem.
 **System informations**
 - Distro :
 - GPU : (AMD, NVIDIA, INTEL)
+- WINE version : 
 
 **Additional context**
 Add any other context about the problem here.
