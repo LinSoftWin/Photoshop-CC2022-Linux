@@ -42,8 +42,8 @@ If you use something from my repo in your project please credit me
 **Camera Raw**
 You can install Camera Raw this way :
 
-curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
-WINEPREFIX=/Path/To/Your/Photoshop/Install/Adobe-Photoshop wine CameraRaw_12_2_1.exe
+`curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe`
+`WINEPREFIX=/Path/To/Your/Photoshop/Install/Adobe-Photoshop wine CameraRaw_12_2_1.exe`
 
 To use camera raw you need to change a settings
 Edit -> preferences -> Camera raw... -> performance -> Use graphic processor : Off
