@@ -22,14 +22,39 @@ If you use something from my repo in your project please credit me
 
 *File download is about 2GB*
 
+## Requirements
+- wine >=6.1 (Avoid 6.20 to 6.22 **DON'T USE STAGING**)
+- zenity
+- appmenu-gtk-module
+- tar
+- wget
+- curl
+- All R/W rights on your home folder and the installer folder
+- Vulkan capable GPU or APU
+
+
 ## Usage : 
 
 **CLI :**
 
 `sh photoshop2022install.sh /path/to/your/install/folder`
 
+**Camera Raw**
+You can install Camera Raw this way :
+
+curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
+WINEPREFIX=/Path/To/Your/Photoshop/Install/Adobe-Photoshop wine CameraRaw_12_2_1.exe
+
+To use camera raw you need to change a settings
+Edit -> preferences -> Camera raw... -> performance -> Use graphic processor : Off
+
+If camera raw is sometimes grayed out, just go to : Edit -> preferences -> Tools, and uncheck show Tooltips.
+
+
 
 **GUI :**
+
+**THIS METHODE IS DEPRECATED PLEASE USE CLI**
 
 Open photoshop installer :
 
@@ -54,16 +79,6 @@ Then you can launch Photoshop :
 **Uninstalling :**
 
 To uninstall remove the photoshop desktop file in *~/.local/share/applications/* then your installation folder
-
-## Requirements
-- wine >=6.1 (Avoid 6.20 to 6.22 **DON'T USE STAGING**)
-- zenity
-- appmenu-gtk-module
-- tar
-- wget
-- curl
-- All R/W rights on your home folder and the installer folder
-- Vulkan capable GPU or APU
 
 
 ## Special thanks to
