@@ -42,7 +42,7 @@ touch $1/progress.mimifile
 echo "70" >> $1/progress.mimifile
 
 
-WINEPREFIX=$1/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk win10
+WINEPREFIX=$1/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk win10 vkd3d
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
@@ -65,9 +65,6 @@ WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.exe /inst
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "90" >> $1/progress.mimifile
-
-chmod +x allredist/setup_vkd3d_proton.sh install
-WINEPREFIX=$1/Adobe-Photoshop ./allredist/setup_vkd3d_proton.sh install
 
 
 mkdir $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe
