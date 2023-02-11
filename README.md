@@ -23,7 +23,9 @@ If you use something from my repo in your project please credit me
 *File download is about 2GB*
 
 ## Requirements
-- wine >=6.1 (Avoid 6.20 to 6.22 **DON'T USE STAGING**)
+- wine >=6.1 (Avoid 6.20 to 6.22 **DON'T USE STAGING**) 
+
+(Wine 8.0+ are causing an issue with the windows version see workaround [here](https://github.com/MiMillieuh/Photoshop-CC2022-Linux/issues/94#issuecomment-1426776219))
 - zenity
 - appmenu-gtk-module
 - tar
