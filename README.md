@@ -32,7 +32,7 @@ If you use something from my repo in your project please credit me
 - wget
 - curl
 - All R/W rights on your home folder and the installer folder
-- Vulkan capable GPU or APU
+- Vulkan capable GPU or APU (Older GPUs might encounter [This issue #100](https://github.com/MiMillieuh/Photoshop-CC2022-Linux/issues/100))
 
 
 ## Usage : 
