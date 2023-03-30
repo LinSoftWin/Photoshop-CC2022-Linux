@@ -2,6 +2,8 @@
 
 ## Important
 
+#### PLEASE WHEN OPENING AN ISSUE FILL THE TEMPLATE OR GIVE ENOUGHT INFORMATION !!! "It doesn't work" ISN'T ENOUGH **
+
 **Please note that the GUI version might not work on your distribution. it worked with some older packager and has broken since. if you used the GUI and it hasn't worked, please try to use the CLI installer wieh a sh file in the RELEASE section. (avoid cloning as master branche can have experimental changes)**
 
 **DISCLAIMER :**
