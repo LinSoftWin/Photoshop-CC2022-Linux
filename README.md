@@ -1,7 +1,7 @@
 # Photoshop-CC2022-Linux
 
 ## Server are down.
-**A fcking asshole is trying to brutforce my server so I've decided to shut my server down for at least 24h**
+**A fcking asshole is trying to brutforce my server if he manage to that will be the reason I guess...**
 
 ## Important
 
