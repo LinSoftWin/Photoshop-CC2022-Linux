@@ -1,8 +1,5 @@
 # Photoshop-CC2022-Linux
 
-## Server are down.
-**A fcking asshole is trying to brutforce my server if he manage to that will be the reason I guess...**
-
 ## Important
 
 #### PLEASE WHEN OPENING AN ISSUE FILL THE TEMPLATE OR GIVE ENOUGHT INFORMATION !!! "It doesn't work" ISN'T ENOUGH **
