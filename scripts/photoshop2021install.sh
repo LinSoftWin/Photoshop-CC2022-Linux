@@ -13,7 +13,10 @@ echo "10" >> $1/progress.mimifile
 
 WINEPREFIX=$1/Adobe-Photoshop ./winetricks win10
 
-curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > allredist.tar.xz
+if [ ! -f ./allredist.tar.xz ]; then
+    curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > allredist.tar.xz
+fi
+
 mkdir allredist
 
 rm -rf $1/progress.mimifile
@@ -21,21 +24,20 @@ touch $1/progress.mimifile
 echo "20" >> $1/progress.mimifile
 
 tar -xf allredist.tar.xz
-rm -rf allredist.tar.xz
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "25" >> $1/progress.mimifile
 
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > AdobePhotoshop2021.tar.xz
+if [ ! -f ./AdobePhotoshop2021.tar.xz ]; then
+    curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > AdobePhotoshop2021.tar.xz
+fi
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "50" >> $1/progress.mimifile
 
 tar -xf AdobePhotoshop2021.tar.xz
-rm -rf AdobePhotoshop2021.tar.xz
-
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
