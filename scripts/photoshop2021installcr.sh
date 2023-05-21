@@ -13,7 +13,7 @@ echo "10" >> $1/progress.mimifile
 
 WINEPREFIX=$1/Adobe-Photoshop ./winetricks win10
 
-curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > allredist.tar.xz
+curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/allredist.tar.xz" > allredist.tar.xz
 mkdir allredist
 
 rm -rf $1/progress.mimifile
