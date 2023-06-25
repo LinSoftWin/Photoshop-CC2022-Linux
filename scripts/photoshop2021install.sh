@@ -1,106 +1,89 @@
 #!/bin/bash
 
-mkdir $1/Adobe-Photoshop
+# Show help menu if no path is given
+if [[ -z $1 ]]; then
+  printf "\nUsage: photoshop2021install.sh [INSTALL PATH] [OPTION]"
+  printf "\n\nOptions:"
+  printf "\n  --camera-raw:\tInstalls Photoshop 2021 and Camera Raw\n"
+  exit 1
+fi
 
+INSTALL_PATH=$(echo "$1" | sed -e 's/\/$//') # Remove trailing slash
+mkdir -p "$INSTALL_PATH"
+export WINEPREFIX="$INSTALL_PATH/prefix"
+
+cd "$INSTALL_PATH"
+
+# Winetricks
 wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
+./winetricks -q vcrun2010 vcrun2012 vcrun2013 vcrun2019 fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk win10 vkd3d
+rm winetricks
 
-WINEPREFIX=$1/Adobe-Photoshop wineboot
+echo "25" > progress.mimifile
 
-rm -rf $1/progress.mimifile
-touch $1/progress.mimifile
-echo "10" >> $1/progress.mimifile
-
-WINEPREFIX=$1/Adobe-Photoshop ./winetricks win10
-
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/allredist.tar.xz" > allredist.tar.xz
-mkdir allredist
-
-rm -rf $1/progress.mimifile
-touch $1/progress.mimifile
-echo "20" >> $1/progress.mimifile
-
-tar -xf allredist.tar.xz
-rm -rf allredist.tar.xz
-
-rm -rf $1/progress.mimifile
-touch $1/progress.mimifile
-echo "25" >> $1/progress.mimifile
-
+# Adobe Photoshop 2021
 curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > AdobePhotoshop2021.tar.xz
-
-rm -rf $1/progress.mimifile
-touch $1/progress.mimifile
-echo "50" >> $1/progress.mimifile
-
+echo "50" > progress.mimifile
 tar -xf AdobePhotoshop2021.tar.xz
-rm -rf AdobePhotoshop2021.tar.xz
+rm AdobePhotoshop2021.tar.xz
+echo "70" > progress.mimifile
+mkdir "prefix/drive_c/Program Files/Adobe"
+mv "Adobe Photoshop 2021" "prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021"
+
+# Create launcher.sh
+touch "launcher.sh"
+cat <<EOF > "launcher.sh"
+#!/usr/bin/env bash
+
+cd "$INSTALL_PATH"
+
+export SCR_PATH="pspath"
+export CACHE_PATH="pscache"
+export RESOURCES_PATH="\$SCR_PATH/resources"
+export WINE_PREFIX="\$SCR_PATH/prefix"
+export WINEPREFIX="$WINEPREFIX"
+export DXVK_LOG_PATH='\$WINEPREFIX'
+export DXVK_STATE_CACHE_PATH='\$WINEPREFIX'
+
+FILE_PATH=\$(winepath -w "\$1")
+
+wine64  "prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe" "\$FILE_PATH"
+EOF
+chmod +x "launcher.sh"
+
+echo "90" > progress.mimifile
+
+# Icon
+curl -L https://raw.githubusercontent.com/LinSoftWin/Photoshop-CC2022-Linux/main/Adobe-Photoshop-Gui-Installer/src/Assets/photoshop.png > photoshop.png
+mv photoshop.png "$HOME/.local/share/icons/photoshop.png"
+
+# Create photoshop2021.desktop
+touch "$HOME/.local/share/applications/photoshop2021.desktop"
+cat <<EOF > "$HOME/.local/share/applications/photoshop2021.desktop"
+[Desktop Entry]
+Name=Photoshop CC 2021
+Exec=bash -c "'$INSTALL_PATH/launcher.sh' %F"
+Type=Application
+Comment=Photoshop CC 2021 (Wine)
+Categories=Graphics;
+Icon=photoshop
+StartupWMClass=photoshop.exe
+EOF
 
 
-rm -rf $1/progress.mimifile
-touch $1/progress.mimifile
-echo "70" >> $1/progress.mimifile
+# Camera Raw
 
+if [[ -n $2 ]] && [[ $2 == "--camera-raw" ]]; then
+    echo "95" > progress.mimifile
 
-WINEPREFIX=$1/Adobe-Photoshop ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk win10 vkd3d
+    curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
+    wine CameraRaw_12_2_1.exe
+    rm CameraRaw_12_2_1.exe
+fi
 
-rm -rf $1/progress.mimifile
-touch $1/progress.mimifile
-echo "80" >> $1/progress.mimifile
+echo "100" > progress.mimifile
 
+echo "Installation complete!"
 
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2010/vcredist_x64.exe /q /norestart
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2010/vcredist_x86.exe /q /norestart
-
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2012/vcredist_x86.exe /install /quiet /norestart
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2012/vcredist_x64.exe /install /quiet /norestart
-
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2013/vcredist_x86.exe /install /quiet /norestart
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2013/vcredist_x64.exe /install /quiet /norestart
-
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
-WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
-
-
-rm -rf $1/progress.mimifile
-touch $1/progress.mimifile
-echo "90" >> $1/progress.mimifile
-
-
-mkdir $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe
-mv Adobe\ Photoshop\ 2021 $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
-
-touch $1/Adobe-Photoshop/drive_c/launcher.sh
-echo '#!/usr/bin/env bash' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'SCR_PATH="pspath"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'CACHE_PATH="pscache"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'RESOURCES_PATH="$SCR_PATH/resources"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'WINE_PREFIX="$SCR_PATH/prefix"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'FILE_PATH=$(winepath -w "$1")' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'export WINEPREFIX="'$1'/Adobe-Photoshop"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-echo 'WINEPREFIX='$1'/Adobe-Photoshop DXVK_LOG_PATH='$1'/Adobe-Photoshop DXVK_STATE_CACHE_PATH='$1'/Adobe-Photoshop wine64 ' $1'/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe "$FILE_PATH"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
-
-chmod +x $1/Adobe-Photoshop/drive_c/launcher.sh
-
-WINEPREFIX=$1/Adobe-Photoshop winecfg -v win10
-
-
-mv allredist/photoshop.png ~/.local/share/icons/photoshop.png
-
-
-touch ~/.local/share/applications/photoshop.desktop
-echo '[Desktop Entry]' >> ~/.local/share/applications/photoshop.desktop
-echo 'Name=Photoshop CC 2021' >> ~/.local/share/applications/photoshop.desktop
-echo 'Exec=bash -c "'$1'/Adobe-Photoshop/drive_c/launcher.sh %F"' >> ~/.local/share/applications/photoshop.desktop
-echo 'Type=Application' >> ~/.local/share/applications/photoshop.desktop
-echo 'Comment=Photoshop CC 2021 (Wine)' >> ~/.local/share/applications/photoshop.desktop
-echo 'Categories=Graphics;' >> ~/.local/share/applications/photoshop.desktop
-echo 'Icon=photoshop' >> ~/.local/share/applications/photoshop.desktop
-echo 'StartupWMClass=photoshop.exe' >> ~/.local/share/applications/photoshop.desktop
-
-rm -rf allredist
-rm -rf winetricks
-
-rm -rf $1/progress.mimifile
-touch $1/progress.mimifile
-echo "100" >> $1/progress.mimifile
+rm progress.mimifile
