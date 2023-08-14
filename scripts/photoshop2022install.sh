@@ -12,7 +12,7 @@ echo "10" >> $1/progress.mimifile
 
 WINEPREFIX=$1/Adobe-Photoshop ./winetricks win10
 
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/allredist.tar.xz" > allredist.tar.xz
+curl -L -P0 "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/allredist.tar.xz" > allredist.tar.xz
 mkdir allredist
 
 rm -rf $1/progress.mimifile
@@ -26,9 +26,9 @@ rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
 echo "25" >> $1/progress.mimifile
 
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/AdobePhotoshop2022.tar.xz" > AdobePhotoshop2022.tar.xz
+curl -L -P0 "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/AdobePhotoshop2022.tar.xz" > AdobePhotoshop2022.tar.xz
 
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe.tar.xz" > Adobe.tar.xz
+curl -L -P0 "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe.tar.xz" > Adobe.tar.xz
 tar -xf Adobe.tar.xz
 mv Adobe $1/Adobe-Photoshop/drive_c/Program\ Files\ \(x86\)/Common\ Files
 rm -rf Adobe.tar.xz
@@ -66,7 +66,7 @@ WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2013/vcredist_x64.exe /insta
 WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
 WINEPREFIX=$1/Adobe-Photoshop wine allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
 
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/wine-tkg-staging-pspatch.tar.xz" > wine-tkg-staging-pspatch.tar.xz
+curl -L -P0 "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/wine-tkg-staging-pspatch.tar.xz" > wine-tkg-staging-pspatch.tar.xz
 tar -xf wine-tkg-staging-pspatch.tar.xz
 mv wine-tkg-staging-pspatch/ $1/Adobe-Photoshop/drive_c/
 rm -rf wine-tkg-staging-pspatch.tar.xz
@@ -100,7 +100,7 @@ WINEPREFIX=$1/Adobe-Photoshop winecfg -v win10
 mv allredist/photoshop.png ~/.local/share/icons/photoshop.png
 
 
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe_Photoshop_2022_Settings.tar.xz" > Adobe_Photoshop_2022_Settings.tar.xz
+curl -L -P0 "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe_Photoshop_2022_Settings.tar.xz" > Adobe_Photoshop_2022_Settings.tar.xz
 tar -xf Adobe_Photoshop_2022_Settings.tar.xz
 mkdir $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe
 mkdir $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe\ Photoshop\ 2022/
