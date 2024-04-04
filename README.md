@@ -1,5 +1,7 @@
 # Photoshop-CC2022-Linux
 
+## Links are down, that's intended until I find a more legitimate solution for everyone.
+
 ## Important
 
 #### PLEASE WHEN OPENING AN ISSUE FILL THE TEMPLATE OR GIVE ENOUGHT INFORMATION !!! "It doesn't work" ISN'T ENOUGH **
