@@ -1,6 +1,13 @@
 # Photoshop-CC2022-Linux
 
-## Links are down, that's intended until I find a more legitimate solution for everyone.
+### Updated fork. **MUST DOWNLOAD** manually the file AdobePhotoshop2021.tar.xz
+
+### Make sure you place AdobePhotoshop2021.tar.xz in the same directory as this script
+
+#### **Refer to this [GitHub comment](https://github.com/LinSoftWin/Photoshop-CC2022-Linux/pull/128#issuecomment-2043562369) for a blazing-fast alternative download source**
+
+-  **SHA256 SUM for checking file authenticity:** 8321b969161f2d2ad736067320d493c5b6ae579eaab9400cd1fda6871af2c033
+
 
 ## Important
 
@@ -27,6 +34,8 @@ If you use something from my repo in your project please credit me
 *File download is about 2GB*
 
 ## Requirements
+
+**Tested CC2021 on openSUSE Tumbleweed** using Wine-9.6, no problems so far
 - wine >=6.1 (Avoid 6.20 to 6.22 **DON'T USE STAGING**) 
 
 (Wine 8.0+ are causing an issue with the windows version see workaround [here](https://github.com/MiMillieuh/Photoshop-CC2022-Linux/issues/94#issuecomment-1426776219))
